@@ -20,8 +20,8 @@
     "fullscreen",
     "typescript"
   ],
-  "author": "",
-  "license": "MIT",
+  "author": "Mateus Tav",
+  "license": "UNLICENSED",
   "devDependencies": {
     "@types/chrome": "^0.0.268",
     "@types/jest": "^29.5.12",

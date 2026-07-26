@@ -1,62 +1,42 @@
-# Auto Cursor Hider for Video & Streaming (TypeScript + Jest)
+# Vanish — Auto Pointer Hider for Streaming
 
-A lightweight Manifest V3 Chrome Extension written in **TypeScript** that automatically hides the mouse cursor when fullscreen video playback is active on **Disney+** and other popular streaming services after a customizable idle delay.
+A lightweight, modern Manifest V3 Chrome Extension written in **TypeScript** that automatically vanishes the mouse pointer during video playback on **Disney+** and other popular streaming services after a customizable idle delay.
 
 ---
 
 ## ✨ Features
 
-- 🎬 **Disney+ Default Support**: Pre-configured with Disney+ (`disneyplus.com`) enabled out of the box.
-- 📺 **Major Streaming Presets**: Built-in toggle support for Disney+, Netflix, YouTube, Amazon Prime Video, Max (HBO), Hulu, Apple TV+, Twitch, Paramount+, and Peacock.
+- 🎬 **Disney+ Native Support**: Custom Web Component & Shadow DOM support for Disney+ (`disneyplus.com`).
+- 📺 **Major Streaming Presets**: Built-in preset support for Disney+, Netflix, YouTube, Amazon Prime Video, Max (HBO), Hulu, Apple TV+, Twitch, Paramount+, and Peacock.
 - 🌐 **Custom Domain Manager**: Add any custom website, anime platform, or local media server (e.g. `crunchyroll.com`, `plex.tv`, `localhost:8080`).
-- ⏱️ **Configurable Idle Delay**: Adjust the idle timer before the cursor disappears (from 0.5 seconds to 10 seconds).
-- 🖥️ **Fullscreen Mode & Flexible Toggles**: Choose between hiding the cursor only when the player is in fullscreen mode or whenever idle on configured sites.
-- ⚡ **Instant Real-time Sync**: Change settings in the Popup or Options page and see immediate updates in open tabs without reloading.
-- 🧪 **TypeScript & Jest Tested**: Written with strict TypeScript types and unit tested using Jest (`ts-jest`, `@types/chrome`, `jest-environment-jsdom`).
+- ⏱️ **Configurable Idle Delay**: Adjust the idle timer before the pointer vanishes (from 0.5 seconds to 10 seconds).
+- 🖥️ **Playback & Fullscreen Mode**: Choose between hiding the pointer on active video playback pages or strictly in fullscreen mode.
+- ⚡ **Instant Real-Time Sync**: Change settings in the Popup or Options page with immediate sync across open tabs.
+- 🧪 **TypeScript & Jest Tested**: Built with strict TypeScript types and comprehensive unit tests using Jest (`ts-jest`, `@types/chrome`, `jest-environment-jsdom`).
 
 ---
 
 ## 🛠️ Scripts & Build Commands
 
-- `yarn build`: Bundles TypeScript source files in `src/` to `dist/` using `esbuild`.
-- `yarn test` / `./node_modules/.bin/jest`: Runs the Jest unit test suite across all modules.
-- `yarn typecheck` / `./node_modules/.bin/tsc --noEmit`: Performs strict TypeScript type checking.
+- `yarn build`: Bundles and minifies TypeScript source files in `src/` to `dist/` using `esbuild`.
+- `yarn build:dev`: Bundles source files without minification for debugging.
+- `yarn test`: Runs the Jest unit test suite across all modules.
+- `yarn typecheck`: Performs strict TypeScript type checking (`tsc --noEmit`).
 
 ---
 
-## 🚀 How to Install in Chrome
+## 🚀 How to Load in Chrome / Brave
 
-1. Open Chrome and navigate to `chrome://extensions/`
+1. Open your browser and navigate to `chrome://extensions/` or `brave://extensions/`.
 2. Turn on **Developer mode** using the toggle switch in the top right corner.
 3. Click **Load unpacked**.
-4. Select the directory: `/Users/mateustav/hide-cursor-on-playback`
-5. The extension **Auto Cursor Hider for Video & Streaming** is now installed and active!
+4. Select the project directory (`/Users/mateustav/hide-cursor-on-playback`).
+5. **Vanish — Auto Pointer Hider** is now active!
 
 ---
 
-## 📂 Project Architecture
+## 🔒 License & Copyright
 
-```
-hide-cursor-on-playback/
-├── manifest.json              # Manifest V3 extension configuration
-├── package.json               # Node dependencies, build & test scripts
-├── tsconfig.json              # TypeScript compiler settings
-├── jest.config.js             # Jest test configuration
-├── src/
-│   ├── types.ts               # Interface definitions (Settings, PresetSite, StatusResponse)
-│   ├── domainMatcher.ts       # Domain matching & normalization logic
-│   ├── idleController.ts      # Idle timer, fullscreen check, and cursor style injection
-│   ├── background.ts          # Background service worker (initial settings & migrations)
-│   ├── content.ts             # Content script entry point
-│   ├── popup/
-│   │   └── popup.ts           # Popup script
-│   └── options/
-│       └── options.ts         # Options dashboard script
-├── tests/
-│   ├── domainMatcher.test.ts  # Jest unit tests for domain matching
-│   ├── idleController.test.ts # Jest unit tests for cursor hiding & timer control
-│   └── background.test.ts     # Jest unit tests for service worker storage setup
-├── popup/                     # Popup HTML & CSS
-├── options/                   # Options HTML & CSS
-└── dist/                      # Compiled JavaScript bundles loaded by manifest.json
-```
+**Copyright (c) 2026 Mateus Tav. All Rights Reserved. Private & Proprietary.**
+
+This software is strictly private and proprietary. No permission is granted to copy, modify, distribute, publish, or commercialize this code without express written permission.
