@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Auto Cursor Hider for Video & Streaming",
+  "name": "Vanish — Auto Pointer Hider for Streaming",
+  "short_name": "Vanish",
   "version": "1.0.0",
-  "description": "Automatically hides the mouse cursor during fullscreen video playback on Disney+, Netflix, YouTube, and custom streaming sites.",
+  "description": "Automatically vanishes the mouse pointer during video playback on Disney+, Netflix, YouTube, and custom streaming sites.",
   "permissions": [
     "storage",
     "activeTab"

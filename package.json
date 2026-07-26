@@ -1,7 +1,7 @@
 {
-  "name": "auto-cursor-hider",
+  "name": "vanish-extension",
   "version": "1.0.0",
-  "description": "Chrome extension to automatically hide the mouse cursor during fullscreen playback on Disney+ and streaming sites.",
+  "description": "Vanish: Automatically vanishes the mouse pointer during video playback on Disney+ and major streaming sites.",
   "main": "dist/background.js",
   "scripts": {
     "build": "esbuild src/background.ts src/content.ts src/popup/popup.ts src/options/options.ts --outdir=dist --bundle --target=es2020 --minify",
@@ -12,9 +12,11 @@
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
+    "vanish",
     "chrome-extension",
     "disneyplus",
     "cursor-hider",
+    "pointer-hider",
     "fullscreen",
     "typescript"
   ],
