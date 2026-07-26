@@ -1,0 +1,33 @@
+{
+  "name": "auto-cursor-hider",
+  "version": "1.0.0",
+  "description": "Chrome extension to automatically hide the mouse cursor during fullscreen playback on Disney+ and streaming sites.",
+  "main": "dist/background.js",
+  "scripts": {
+    "build": "esbuild src/background.ts src/content.ts src/popup/popup.ts src/options/options.ts --outdir=dist --bundle --target=es2020 --minify",
+    "build:dev": "esbuild src/background.ts src/content.ts src/popup/popup.ts src/options/options.ts --outdir=dist --bundle --target=es2020",
+    "watch": "esbuild src/background.ts src/content.ts src/popup/popup.ts src/options/options.ts --outdir=dist --bundle --target=es2020 --watch",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "chrome-extension",
+    "disneyplus",
+    "cursor-hider",
+    "fullscreen",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.268",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.7",
+    "esbuild": "^0.20.2",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.4.5"
+  }
+}

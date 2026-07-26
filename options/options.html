@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auto Cursor Hider Settings</title>
+  <link rel="stylesheet" href="options.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="theme-dark">
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20Z" fill="currentColor"/>
+            <path d="M12 6C8.69 6 6 8.69 6 12C6 15.31 8.69 18 12 18C15.31 18 18 15.31 18 12C18 8.69 15.31 6 12 6ZM12 16C9.79 16 8 14.21 8 12C8 9.79 9.79 8 12 8C14.21 8 16 9.79 16 12C16 14.21 14.21 16 12 16Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h2>Auto Cursor Hider</h2>
+          <span>Preferences & Sites</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="tab-general">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>General Settings</span>
+        </button>
+        <button class="nav-item" data-tab="tab-presets">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+          <span>Streaming Sites</span>
+        </button>
+        <button class="nav-item" data-tab="tab-custom">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+          <span>Custom Sites</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="reset-defaults-btn" class="reset-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          <span>Reset to Defaults</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- General Settings Tab -->
+      <section id="tab-general" class="tab-pane active">
+        <div class="page-header">
+          <h1>General Settings</h1>
+          <p>Configure mouse cursor hiding behavior, theme preferences, and idle delays.</p>
+        </div>
+
+        <div class="card-grid">
+          <!-- Master Switch Card -->
+          <div class="card">
+            <div class="card-body">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h3>Enable Extension</h3>
+                  <p>Turn on or off automatic cursor hiding globally across all configured sites.</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="opt-global-enabled">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fullscreen Mode Card -->
+          <div class="card">
+            <div class="card-body">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h3>Fullscreen Mode Only</h3>
+                  <p>When enabled, cursor will only hide if the browser or video player is in Fullscreen mode. Disable to hide whenever idle on streaming sites.</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="opt-fullscreen-only">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Theme Preference Card -->
+          <div class="card">
+            <div class="card-body">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h3>Interface Theme</h3>
+                  <p>Choose your preferred theme appearance for Options and Popup.</p>
+                </div>
+                <div class="theme-selector-group">
+                  <button class="theme-btn active" data-theme="dark">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <span>Dark</span>
+                  </button>
+                  <button class="theme-btn" data-theme="light">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <span>Light</span>
+                  </button>
+                  <button class="theme-btn" data-theme="system">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <span>System</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delay Setting Card -->
+          <div class="card">
+            <div class="card-body">
+              <div class="setting-info margin-bottom">
+                <h3>Idle Delay Before Hiding</h3>
+                <p>Set how long the mouse must remain still before the cursor disappears automatically.</p>
+              </div>
+
+              <div class="delay-input-group">
+                <input type="range" id="opt-delay-slider" min="0.5" max="10.0" step="0.5" value="2.0">
+                <div class="delay-number-box">
+                  <input type="number" id="opt-delay-number" min="0.5" max="10.0" step="0.1" value="2.0">
+                  <span>sec</span>
+                </div>
+              </div>
+              <div class="preset-delay-buttons">
+                <button data-delay="1.0">1s (Fast)</button>
+                <button data-delay="2.0">2s (Default)</button>
+                <button data-delay="3.0">3s</button>
+                <button data-delay="5.0">5s (Relaxed)</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Preset Sites Tab -->
+      <section id="tab-presets" class="tab-pane">
+        <div class="page-header">
+          <h1>Major Streaming Sites</h1>
+          <p>Choose which supported video platforms will automatically hide the cursor on idle.</p>
+        </div>
+
+        <div class="preset-filter-bar">
+          <input type="text" id="preset-search" placeholder="Search streaming sites (e.g. Disney+, Netflix)...">
+          <div class="quick-actions">
+            <button id="enable-all-presets">Enable All</button>
+            <button id="disable-all-presets">Disable All</button>
+          </div>
+        </div>
+
+        <div class="sites-grid" id="preset-sites-grid">
+          <!-- Dynamic preset cards injected here -->
+        </div>
+      </section>
+
+      <!-- Custom Sites Tab -->
+      <section id="tab-custom" class="tab-pane">
+        <div class="page-header">
+          <h1>Custom Sites & Domains</h1>
+          <p>Add custom video sites, anime web apps, or local media servers (e.g. Plex, Jellyfin, custom domains).</p>
+        </div>
+
+        <div class="card add-site-card">
+          <div class="card-body">
+            <h3>Add New Site</h3>
+            <form id="add-custom-form" class="add-site-form">
+              <input type="text" id="custom-domain-input" placeholder="e.g. crunchyroll.com or 192.168.1.50" required>
+              <button type="submit" class="btn-primary">Add Domain</button>
+            </form>
+            <span class="hint">Enter hostname or domain without http://. Subdomains will be automatically included.</span>
+          </div>
+        </div>
+
+        <div class="custom-sites-list-header">
+          <h2>Active Custom Domains (<span id="custom-count">0</span>)</h2>
+        </div>
+
+        <div class="custom-sites-container" id="custom-sites-list">
+          <!-- Custom sites list injected here -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Settings updated successfully</div>
+
+  <script src="../dist/options/options.js"></script>
+</body>
+</html>
