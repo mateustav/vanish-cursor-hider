@@ -1177,9 +1177,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"auto-cursor-hider@workspace:.":
+"vanish-extension@workspace:.":
   version: 0.0.0-use.local
-  resolution: "auto-cursor-hider@workspace:."
+  resolution: "vanish-extension@workspace:."
   dependencies:
     "@types/chrome": "npm:^0.0.268"
     "@types/jest": "npm:^29.5.12"
