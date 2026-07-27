@@ -1,4 +1,4 @@
-import { DEFAULT_SETTINGS, ExtensionSettings, ThemeMode } from '../types';
+import { DEFAULT_PRESETS, DEFAULT_SETTINGS, ExtensionSettings, ThemeMode } from '../types';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const navItems = document.querySelectorAll('.nav-item');
@@ -52,6 +52,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   async function loadSettings(): Promise<void> {
     const stored = await chrome.storage.sync.get(null);
     settings = { ...settings, ...(stored as Partial<ExtensionSettings>) };
+    const defaultIds = new Set(DEFAULT_PRESETS.map((p) => p.id));
+    if (settings.presetSites) {
+      settings.presetSites = settings.presetSites.filter((p) => defaultIds.has(p.id));
+    }
     renderAll();
   }
 
