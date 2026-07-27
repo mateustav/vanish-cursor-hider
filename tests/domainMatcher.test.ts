@@ -6,12 +6,12 @@ describe('domainMatcher', () => {
     it('should strip http, https, and www prefixes', () => {
       expect(normalizeDomain('https://www.disneyplus.com')).toBe('disneyplus.com');
       expect(normalizeDomain('http://disneyplus.com')).toBe('disneyplus.com');
-      expect(normalizeDomain('www.netflix.com')).toBe('netflix.com');
+      expect(normalizeDomain('www.youtube.com')).toBe('youtube.com');
     });
 
     it('should strip URL paths and trailing slashes', () => {
       expect(normalizeDomain('https://www.disneyplus.com/browse/home')).toBe('disneyplus.com');
-      expect(normalizeDomain('netflix.com/title/80000')).toBe('netflix.com');
+      expect(normalizeDomain('youtube.com/watch?v=12345')).toBe('youtube.com');
     });
 
     it('should strip ports', () => {
@@ -36,7 +36,7 @@ describe('domainMatcher', () => {
 
     it('should match subdomains', () => {
       expect(isDomainMatching('www.disneyplus.com', 'disneyplus.com')).toBe(true);
-      expect(isDomainMatching('app.tv.apple.com', 'tv.apple.com')).toBe(true);
+      expect(isDomainMatching('m.youtube.com', 'youtube.com')).toBe(true);
     });
 
     it('should not match completely different domains', () => {
@@ -61,12 +61,9 @@ describe('domainMatcher', () => {
       expect(isSiteEnabledForHost('www.disneyplus.com', settings)).toBe(true);
     });
 
-    it('should return true for default enabled preset sites', () => {
-      expect(isSiteEnabledForHost('netflix.com', settings)).toBe(true);
+    it('should return true for YouTube by default', () => {
       expect(isSiteEnabledForHost('youtube.com', settings)).toBe(true);
       expect(isSiteEnabledForHost('www.youtube.com', settings)).toBe(true);
-      expect(isSiteEnabledForHost('primevideo.com', settings)).toBe(true);
-      expect(isSiteEnabledForHost('max.com', settings)).toBe(true);
     });
 
     it('should return false if preset site is disabled in settings', () => {
