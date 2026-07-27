@@ -1,13 +1,13 @@
 # Vanish — Auto Pointer Hider for Streaming
 
-A lightweight, modern Manifest V3 extension written in **TypeScript** that automatically vanishes the mouse pointer during video playback on **Disney+** and other popular streaming services after a customizable idle delay.
+A lightweight, modern Manifest V3 extension written in **TypeScript** that automatically vanishes the mouse pointer during video playback on **Disney+** and **YouTube** after a customizable idle delay.
 
 ---
 
 ## ✨ Features
 
 - 🎬 **Disney+ Native Support**: Custom Web Component & Shadow DOM support for Disney+ (`disneyplus.com`).
-- 📺 **Major Streaming Presets**: Built-in preset support for Disney+, Netflix, YouTube, Amazon Prime Video, Max (HBO), Hulu, Apple TV+, Twitch, Paramount+, and Peacock.
+- 📺 **Streaming Presets**: Built-in preset support for Disney+ and YouTube.
 - 🌐 **Custom Domain Manager**: Add any custom website, anime platform, or local media server (e.g. `crunchyroll.com`, `plex.tv`, `localhost:8080`).
 - ⏱️ **Configurable Idle Delay**: Adjust the idle timer before the pointer vanishes (from 0.5 seconds to 10 seconds).
 - 🖥️ **Playback & Fullscreen Mode**: Choose between hiding the pointer on active video playback pages or strictly in fullscreen mode.
@@ -18,15 +18,24 @@ A lightweight, modern Manifest V3 extension written in **TypeScript** that autom
 
 ## 🛠️ Scripts & Build Commands
 
-- `yarn build`: Bundles and minifies TypeScript source files for Chrome, Brave, and Edge.
+- `yarn build`: Bundles and minifies TypeScript source files for Chrome, Brave, and Edge into `dist/`.
 - `yarn build:firefox`: Generates the self-contained Firefox build folder (`dist-firefox/`).
-- `yarn build:dev`: Bundles source files without minification for debugging.
+- `yarn pack`: Builds and zips the Chrome extension bundle into **`vanish-chrome.zip`** for store upload.
+- `yarn pack:firefox`: Builds and zips the Firefox add-on bundle into **`vanish-firefox.zip`** for store upload.
+- `yarn pack:all`: Builds and generates both Chrome and Firefox zip bundles.
 - `yarn test`: Runs the Jest unit test suite across all modules.
 - `yarn typecheck`: Performs strict TypeScript type checking (`tsc --noEmit`).
 
 ---
 
-## 🚀 How to Load in Chrome / Brave / Edge
+## 📦 How to Bundle for Web Store Publishing
+
+- **Chrome Web Store**: Run `yarn pack` to generate **`vanish-chrome.zip`**.
+- **Firefox AMO**: Run `yarn pack:firefox` to generate **`vanish-firefox.zip`**.
+
+---
+
+## 🚀 How to Load Unpacked in Chrome / Brave / Edge
 
 1. Open your browser and navigate to `chrome://extensions/` or `brave://extensions/`.
 2. Turn on **Developer mode** using the toggle switch in the top right corner.
@@ -36,7 +45,7 @@ A lightweight, modern Manifest V3 extension written in **TypeScript** that autom
 
 ---
 
-## 🦊 How to Load in Firefox
+## 🦊 How to Load Unpacked in Firefox
 
 1. Run the Firefox build command: `yarn build:firefox`
 2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.

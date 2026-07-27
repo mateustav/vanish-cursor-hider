@@ -1,10 +1,10 @@
-import { ExtensionSettings } from './types';
-import { isSiteEnabledForHost } from './domainMatcher';
+import { ExtensionSettings } from "./types";
+import { isSiteEnabledForHost } from "./domainMatcher";
 
-export const STYLE_ID = 'auto-cursor-hider-style';
-export const OVERLAY_ID = 'ach-cursor-overlay';
-export const SHADOW_STYLE_ID = 'ach-shadow-style';
-export const HIDDEN_CLASS = 'ach-cursor-hidden';
+export const STYLE_ID = "auto-cursor-hider-style";
+export const OVERLAY_ID = "ach-cursor-overlay";
+export const SHADOW_STYLE_ID = "ach-shadow-style";
+export const HIDDEN_CLASS = "ach-cursor-hidden";
 
 const TRANSPARENT_CURSOR_DATA = `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==") 0 0, none !important`;
 
@@ -72,7 +72,7 @@ const SHADOW_CURSOR_NONE_CSS = `
 export function injectCursorStyles(doc: Document = document): void {
   let styleEl = doc.getElementById(STYLE_ID) as HTMLStyleElement;
   if (!styleEl) {
-    styleEl = doc.createElement('style');
+    styleEl = doc.createElement("style");
     styleEl.id = STYLE_ID;
     styleEl.textContent = CURSOR_NONE_CSS;
 
@@ -85,7 +85,7 @@ export function injectCursorStyles(doc: Document = document): void {
   }
 
   if (!doc.getElementById(OVERLAY_ID)) {
-    const overlay = doc.createElement('div');
+    const overlay = doc.createElement("div");
     overlay.id = OVERLAY_ID;
     const target = doc.body || doc.documentElement;
     if (target) {
@@ -97,15 +97,20 @@ export function injectCursorStyles(doc: Document = document): void {
 /**
  * Lightweight targeted Shadow Root processor. Only queries known custom Web Components (e.g. <pointer-actions>).
  */
-export function processShadowRoots(root: ParentNode = document, hide: boolean = false): void {
+export function processShadowRoots(
+  root: ParentNode = document,
+  hide: boolean = false,
+): void {
   try {
-    const customElements = root.querySelectorAll('pointer-actions, pivot-tray-overlay, [part*="pointer"]');
+    const customElements = root.querySelectorAll(
+      'pointer-actions, pivot-tray-overlay, [part*="pointer"]',
+    );
     customElements.forEach((el) => {
       if (el.shadowRoot) {
         let shadowStyle = el.shadowRoot.getElementById(SHADOW_STYLE_ID);
         if (hide) {
           if (!shadowStyle) {
-            shadowStyle = document.createElement('style');
+            shadowStyle = document.createElement("style");
             shadowStyle.id = SHADOW_STYLE_ID;
             shadowStyle.textContent = SHADOW_CURSOR_NONE_CSS;
             el.shadowRoot.appendChild(shadowStyle);
@@ -120,7 +125,10 @@ export function processShadowRoots(root: ParentNode = document, hide: boolean = 
   } catch {}
 }
 
-export function isFullscreenActive(doc: Document = document, win: Window = window): boolean {
+export function isFullscreenActive(
+  doc: Document = document,
+  win: Window = window,
+): boolean {
   const d = doc as any;
 
   // 1. Native browser Fullscreen API
@@ -133,17 +141,21 @@ export function isFullscreenActive(doc: Document = document, win: Window = windo
     return true;
   }
 
-  // 2. Disney+ / Netflix / Streaming video player playback page URL check
-  if (win.location && win.location.href && win.location.href.includes('/play/')) {
+  // 2. Disney+ / Streaming video player playback page URL check
+  if (
+    win.location &&
+    win.location.href &&
+    win.location.href.includes("/play/")
+  ) {
     return true;
   }
 
   // 3. Fullscreen / video player CSS classes on body or document
   if (doc.body) {
     if (
-      doc.body.classList.contains('fullscreen') ||
-      doc.body.classList.contains('is-fullscreen') ||
-      doc.documentElement.classList.contains('fullscreen')
+      doc.body.classList.contains("fullscreen") ||
+      doc.body.classList.contains("is-fullscreen") ||
+      doc.documentElement.classList.contains("fullscreen")
     ) {
       return true;
     }
@@ -157,7 +169,9 @@ export function isFullscreenActive(doc: Document = document, win: Window = windo
 
     if (isWindowMax && doc.body) {
       const rect = doc.body.getBoundingClientRect();
-      const isBodyFull = rect.width >= win.screen.width - 30 && rect.height >= win.screen.height - 30;
+      const isBodyFull =
+        rect.width >= win.screen.width - 30 &&
+        rect.height >= win.screen.height - 30;
       if (isBodyFull) {
         return true;
       }
@@ -166,11 +180,17 @@ export function isFullscreenActive(doc: Document = document, win: Window = windo
 
   // 5. Video or player container bounds check (including <pointer-actions>)
   try {
-    const videos = doc.querySelectorAll('video, pointer-actions, [class*="player"], [class*="video"], [id*="vdp"]');
+    const videos = doc.querySelectorAll(
+      'video, pointer-actions, [class*="player"], [class*="video"], [id*="vdp"]',
+    );
     for (let i = 0; i < videos.length; i++) {
       const v = videos[i] as HTMLElement;
       const rect = v.getBoundingClientRect();
-      if (rect.width >= win.innerWidth - 30 && rect.height >= win.innerHeight - 30 && win.innerWidth > 300) {
+      if (
+        rect.width >= win.innerWidth - 30 &&
+        rect.height >= win.innerHeight - 30 &&
+        win.innerWidth > 300
+      ) {
         return true;
       }
     }
@@ -189,7 +209,11 @@ export class IdleController {
   private lastMouseX: number = -1;
   private lastMouseY: number = -1;
 
-  constructor(settings: ExtensionSettings, doc: Document = document, win: Window = window) {
+  constructor(
+    settings: ExtensionSettings,
+    doc: Document = document,
+    win: Window = window,
+  ) {
     this.settings = settings;
     this.doc = doc;
     this.win = win;
@@ -208,7 +232,7 @@ export class IdleController {
     if (this.isHidden) return;
 
     if (this.settings.debugMode) {
-      console.log('[Vanish] 🙈 Hiding cursor NOW.');
+      console.log("[Vanish] 🙈 Hiding cursor NOW.");
     }
 
     injectCursorStyles(this.doc);
@@ -220,9 +244,9 @@ export class IdleController {
       overlay = this.doc.getElementById(OVERLAY_ID);
     }
     if (overlay) {
-      overlay.classList.add('active');
-      overlay.style.setProperty('cursor', TRANSPARENT_CURSOR_DATA, 'important');
-      overlay.style.setProperty('display', 'block', 'important');
+      overlay.classList.add("active");
+      overlay.style.setProperty("cursor", TRANSPARENT_CURSOR_DATA, "important");
+      overlay.style.setProperty("display", "block", "important");
     }
 
     this.reapplyCursorNone();
@@ -232,11 +256,19 @@ export class IdleController {
   private reapplyCursorNone(): void {
     if (this.doc.documentElement) {
       this.doc.documentElement.classList.add(HIDDEN_CLASS);
-      this.doc.documentElement.style.setProperty('cursor', TRANSPARENT_CURSOR_DATA, 'important');
+      this.doc.documentElement.style.setProperty(
+        "cursor",
+        TRANSPARENT_CURSOR_DATA,
+        "important",
+      );
     }
     if (this.doc.body) {
       this.doc.body.classList.add(HIDDEN_CLASS);
-      this.doc.body.style.setProperty('cursor', TRANSPARENT_CURSOR_DATA, 'important');
+      this.doc.body.style.setProperty(
+        "cursor",
+        TRANSPARENT_CURSOR_DATA,
+        "important",
+      );
     }
 
     processShadowRoots(this.doc, true);
@@ -246,22 +278,22 @@ export class IdleController {
     if (!this.isHidden) return;
 
     if (this.settings.debugMode) {
-      console.log('[Vanish] 👁️ Showing cursor (activity detected).');
+      console.log("[Vanish] 👁️ Showing cursor (activity detected).");
     }
 
     const overlay = this.doc.getElementById(OVERLAY_ID);
     if (overlay) {
-      overlay.classList.remove('active');
-      overlay.style.removeProperty('display');
+      overlay.classList.remove("active");
+      overlay.style.removeProperty("display");
     }
 
     if (this.doc.documentElement) {
       this.doc.documentElement.classList.remove(HIDDEN_CLASS);
-      this.doc.documentElement.style.removeProperty('cursor');
+      this.doc.documentElement.style.removeProperty("cursor");
     }
     if (this.doc.body) {
       this.doc.body.classList.remove(HIDDEN_CLASS);
-      this.doc.body.style.removeProperty('cursor');
+      this.doc.body.style.removeProperty("cursor");
     }
 
     processShadowRoots(this.doc, false);
@@ -274,9 +306,12 @@ export class IdleController {
       return;
     }
 
-    if (event && (event.type === 'mousemove' || event.type === 'pointermove')) {
+    if (event && (event.type === "mousemove" || event.type === "pointermove")) {
       const mouseEv = event as MouseEvent;
-      if (mouseEv.clientX === this.lastMouseX && mouseEv.clientY === this.lastMouseY) {
+      if (
+        mouseEv.clientX === this.lastMouseX &&
+        mouseEv.clientY === this.lastMouseY
+      ) {
         return;
       }
       this.lastMouseX = mouseEv.clientX;
@@ -288,12 +323,16 @@ export class IdleController {
   }
 
   public evaluateState(): void {
-    const hostname = this.win.location?.hostname || '';
-    const referrer = this.doc.referrer || '';
+    const hostname = this.win.location?.hostname || "";
+    const referrer = this.doc.referrer || "";
     const siteMatched = isSiteEnabledForHost(hostname, this.settings, referrer);
     const fullscreen = isFullscreenActive(this.doc, this.win);
 
-    if (!this.settings.enabled || !siteMatched || (this.settings.fullscreenOnly && !fullscreen)) {
+    if (
+      !this.settings.enabled ||
+      !siteMatched ||
+      (this.settings.fullscreenOnly && !fullscreen)
+    ) {
       this.clearTimer();
       this.showCursor();
       return;
@@ -312,8 +351,8 @@ export class IdleController {
   public startTimer(): void {
     if (this.timer || this.isHidden) return;
 
-    const hostname = this.win.location?.hostname || '';
-    const referrer = this.doc.referrer || '';
+    const hostname = this.win.location?.hostname || "";
+    const referrer = this.doc.referrer || "";
     const siteMatched = isSiteEnabledForHost(hostname, this.settings, referrer);
     const fullscreen = isFullscreenActive(this.doc, this.win);
 
@@ -324,8 +363,18 @@ export class IdleController {
 
     this.timer = setTimeout(() => {
       this.timer = null;
-      if (this.settings.enabled && isSiteEnabledForHost(this.win.location?.hostname || '', this.settings, this.doc.referrer)) {
-        if (!this.settings.fullscreenOnly || isFullscreenActive(this.doc, this.win)) {
+      if (
+        this.settings.enabled &&
+        isSiteEnabledForHost(
+          this.win.location?.hostname || "",
+          this.settings,
+          this.doc.referrer,
+        )
+      ) {
+        if (
+          !this.settings.fullscreenOnly ||
+          isFullscreenActive(this.doc, this.win)
+        ) {
           this.hideCursor();
         }
       }

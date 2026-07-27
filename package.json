@@ -8,6 +8,9 @@
     "build:firefox": "yarn build && node build-firefox.js",
     "build:dev": "esbuild src/background.ts src/content.ts src/popup/popup.ts src/options/options.ts --outdir=dist --bundle --target=es2020",
     "watch": "esbuild src/background.ts src/content.ts src/popup/popup.ts src/options/options.ts --outdir=dist --bundle --target=es2020 --watch",
+    "pack": "yarn build && node pack.js chrome",
+    "pack:firefox": "yarn build:firefox && node pack.js firefox",
+    "pack:all": "yarn build && yarn build:firefox && node pack.js all",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "typecheck": "tsc --noEmit"
