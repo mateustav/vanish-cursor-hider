@@ -1,6 +1,6 @@
 # Vanish — Auto Pointer Hider for Streaming
 
-A lightweight, modern Manifest V3 Chrome Extension written in **TypeScript** that automatically vanishes the mouse pointer during video playback on **Disney+** and other popular streaming services after a customizable idle delay.
+A lightweight, modern Manifest V3 extension written in **TypeScript** that automatically vanishes the mouse pointer during video playback on **Disney+** and other popular streaming services after a customizable idle delay.
 
 ---
 
@@ -18,20 +18,31 @@ A lightweight, modern Manifest V3 Chrome Extension written in **TypeScript** tha
 
 ## 🛠️ Scripts & Build Commands
 
-- `yarn build`: Bundles and minifies TypeScript source files in `src/` to `dist/` using `esbuild`.
+- `yarn build`: Bundles and minifies TypeScript source files for Chrome, Brave, and Edge.
+- `yarn build:firefox`: Generates the self-contained Firefox build folder (`dist-firefox/`).
 - `yarn build:dev`: Bundles source files without minification for debugging.
 - `yarn test`: Runs the Jest unit test suite across all modules.
 - `yarn typecheck`: Performs strict TypeScript type checking (`tsc --noEmit`).
 
 ---
 
-## 🚀 How to Load in Chrome / Brave
+## 🚀 How to Load in Chrome / Brave / Edge
 
 1. Open your browser and navigate to `chrome://extensions/` or `brave://extensions/`.
 2. Turn on **Developer mode** using the toggle switch in the top right corner.
 3. Click **Load unpacked**.
-4. Select the project directory (`/Users/mateustav/hide-cursor-on-playback`).
-5. **Vanish — Auto Pointer Hider** is now active!
+4. Select the root project directory (`/Users/mateustav/hide-cursor-on-playback`).
+5. **Vanish** is now active!
+
+---
+
+## 🦊 How to Load in Firefox
+
+1. Run the Firefox build command: `yarn build:firefox`
+2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.
+3. Click **Load Temporary Add-on...**.
+4. Select `manifest.json` inside the generated **`dist-firefox/`** folder (`/Users/mateustav/hide-cursor-on-playback/dist-firefox/manifest.json`).
+5. **Vanish** is now loaded with native Firefox background scripts!
 
 ---
 
