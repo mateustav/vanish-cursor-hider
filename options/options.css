@@ -115,12 +115,17 @@ body {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 0.75rem;
-  background: var(--accent-blue);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  box-shadow: 0 0.25rem 1rem rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.4);
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .brand-text h2 {
