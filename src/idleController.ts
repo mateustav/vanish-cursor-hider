@@ -207,7 +207,9 @@ export class IdleController {
   public hideCursor(): void {
     if (this.isHidden) return;
 
-    console.log('[AutoCursorHider] 🙈 Hiding cursor NOW.');
+    if (this.settings.debugMode) {
+      console.log('[Vanish] 🙈 Hiding cursor NOW.');
+    }
 
     injectCursorStyles(this.doc);
     processShadowRoots(this.doc, true);
@@ -243,7 +245,9 @@ export class IdleController {
   public showCursor(): void {
     if (!this.isHidden) return;
 
-    console.log('[AutoCursorHider] 👁️ Showing cursor (activity detected).');
+    if (this.settings.debugMode) {
+      console.log('[Vanish] 👁️ Showing cursor (activity detected).');
+    }
 
     const overlay = this.doc.getElementById(OVERLAY_ID);
     if (overlay) {

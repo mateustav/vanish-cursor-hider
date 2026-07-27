@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Auto Cursor Hider Settings</title>
+  <title>Vanish Settings</title>
   <link rel="stylesheet" href="options.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,7 @@
           </svg>
         </div>
         <div class="brand-text">
-          <h2>Auto Cursor Hider</h2>
+          <h2>Vanish</h2>
           <span>Preferences & Sites</span>
         </div>
       </div>
@@ -55,7 +55,7 @@
       <section id="tab-general" class="tab-pane active">
         <div class="page-header">
           <h1>General Settings</h1>
-          <p>Configure mouse cursor hiding behavior, theme preferences, and idle delays.</p>
+          <p>Configure mouse pointer hiding behavior, theme preferences, and idle delays.</p>
         </div>
 
         <div class="card-grid">
@@ -65,7 +65,7 @@
               <div class="setting-item">
                 <div class="setting-info">
                   <h3>Enable Extension</h3>
-                  <p>Turn on or off automatic cursor hiding globally across all configured sites.</p>
+                  <p>Turn on or off automatic pointer hiding globally across all configured sites.</p>
                 </div>
                 <label class="toggle-switch">
                   <input type="checkbox" id="opt-global-enabled">
@@ -81,10 +81,26 @@
               <div class="setting-item">
                 <div class="setting-info">
                   <h3>Fullscreen Mode Only</h3>
-                  <p>When enabled, cursor will only hide if the browser or video player is in Fullscreen mode. Disable to hide whenever idle on streaming sites.</p>
+                  <p>When enabled, pointer will only hide if the browser or video player is in Fullscreen mode. Disable to hide whenever idle on streaming sites.</p>
                 </div>
                 <label class="toggle-switch">
                   <input type="checkbox" id="opt-fullscreen-only">
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Debug Mode Card -->
+          <div class="card">
+            <div class="card-body">
+              <div class="setting-item">
+                <div class="setting-info">
+                  <h3>Debug Mode</h3>
+                  <p>When enabled, detailed diagnostic logs will be printed to the browser developer console for troubleshooting.</p>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="opt-debug-mode">
                   <span class="slider"></span>
                 </label>
               </div>
@@ -122,7 +138,7 @@
             <div class="card-body">
               <div class="setting-info margin-bottom">
                 <h3>Idle Delay Before Hiding</h3>
-                <p>Set how long the mouse must remain still before the cursor disappears automatically.</p>
+                <p>Set how long the mouse must remain still before the pointer disappears automatically.</p>
               </div>
 
               <div class="delay-input-group">
@@ -147,7 +163,7 @@
       <section id="tab-presets" class="tab-pane">
         <div class="page-header">
           <h1>Major Streaming Sites</h1>
-          <p>Choose which supported video platforms will automatically hide the cursor on idle.</p>
+          <p>Choose which supported video platforms will automatically hide the pointer on idle.</p>
         </div>
 
         <div class="preset-filter-bar">

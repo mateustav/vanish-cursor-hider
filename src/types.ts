@@ -14,6 +14,7 @@ export interface ExtensionSettings {
   delay: number; // in seconds
   theme: ThemeMode;
   allSitesMode: boolean; // Hide cursor on all websites
+  debugMode: boolean; // Enable diagnostic console logs
   presetSites: PresetSite[];
   customSites: string[];
 }
@@ -50,6 +51,7 @@ export const DEFAULT_SETTINGS: ExtensionSettings = {
   delay: 2.0,
   theme: 'dark',
   allSitesMode: false,
+  debugMode: false,
   presetSites: DEFAULT_PRESETS,
   customSites: []
 };

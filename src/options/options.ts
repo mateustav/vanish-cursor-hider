@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const globalEnabledToggle = document.getElementById('opt-global-enabled') as HTMLInputElement;
   const fullscreenOnlyToggle = document.getElementById('opt-fullscreen-only') as HTMLInputElement;
+  const debugModeToggle = document.getElementById('opt-debug-mode') as HTMLInputElement;
   const delaySlider = document.getElementById('opt-delay-slider') as HTMLInputElement;
   const delayNumber = document.getElementById('opt-delay-number') as HTMLInputElement;
   const presetDelayBtns = document.querySelectorAll('.preset-delay-buttons button');
@@ -57,6 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   function renderAll(): void {
     globalEnabledToggle.checked = settings.enabled;
     fullscreenOnlyToggle.checked = settings.fullscreenOnly;
+    debugModeToggle.checked = settings.debugMode || false;
     delaySlider.value = (settings.delay || 2.0).toString();
     delayNumber.value = (settings.delay || 2.0).toFixed(1);
 
@@ -181,6 +183,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     settings.fullscreenOnly = fullscreenOnlyToggle.checked;
     await chrome.storage.sync.set({ fullscreenOnly: settings.fullscreenOnly });
     showToast('Fullscreen mode updated');
+  });
+
+  debugModeToggle.addEventListener('change', async () => {
+    settings.debugMode = debugModeToggle.checked;
+    await chrome.storage.sync.set({ debugMode: settings.debugMode });
+    showToast(settings.debugMode ? 'Debug mode enabled' : 'Debug mode disabled');
   });
 
   function updateDelay(newVal: string): void {

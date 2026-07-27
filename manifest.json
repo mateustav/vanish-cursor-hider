@@ -4,6 +4,12 @@
   "short_name": "Vanish",
   "version": "1.0.0",
   "description": "Automatically vanishes the mouse pointer during video playback on Disney+, Netflix, YouTube, and custom streaming sites.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "vanish-pointer-hider@mateustav.com",
+      "strict_min_version": "109.0"
+    }
+  },
   "permissions": [
     "storage",
     "activeTab"

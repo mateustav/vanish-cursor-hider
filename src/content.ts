@@ -18,13 +18,14 @@ declare global {
   let controller: IdleController | null = null;
 
   function logStatus(): void {
+    if (!currentSettings.debugMode) return;
     const hostname = window.location.hostname;
     if (!hostname) return;
     const isMatched = isSiteEnabledForHost(hostname, currentSettings, document.referrer);
     const isFS = isFullscreenActive(document, window);
 
     console.log(
-      `[AutoCursorHider] Status -> Site: "${hostname}" | Matched: ${isMatched} | Fullscreen: ${isFS} | Enabled: ${currentSettings.enabled} | FullscreenOnly: ${currentSettings.fullscreenOnly} | Delay: ${currentSettings.delay}s`
+      `[Vanish] Status -> Site: "${hostname}" | Matched: ${isMatched} | Fullscreen: ${isFS} | Enabled: ${currentSettings.enabled} | FullscreenOnly: ${currentSettings.fullscreenOnly} | Delay: ${currentSettings.delay}s`
     );
   }
 
@@ -32,8 +33,8 @@ declare global {
     injectCursorStyles(document);
     controller = new IdleController(currentSettings, document, window);
 
-    if (window.location.hostname) {
-      console.log(`[AutoCursorHider] Extension loaded on ${window.location.hostname}`);
+    if (currentSettings.debugMode && window.location.hostname) {
+      console.log(`[Vanish] Extension loaded on ${window.location.hostname}`);
     }
 
     // Fetch initial settings from Chrome Storage
