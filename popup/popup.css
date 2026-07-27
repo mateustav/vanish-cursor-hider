@@ -1,15 +1,21 @@
 :root {
-  --bg-primary: #0f172a;
-  --bg-card: #1e293b;
-  --bg-card-hover: #334155;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --accent-cyan: #38bdf8;
-  --accent-blue: #3b82f6;
+  /* Dark Mode (Default) */
+  --bg-app: #141715;
+  --bg-primary: #141715;
+  --bg-card: #1e2420;
+  --bg-card-hover: #28302a;
+  --bg-subtle: #28302a;
+  --text-primary: #e6ece8;
+  --text-secondary: #a3b2a8;
+  --text-on-accent: #141715;
+  --brand-sage: #7da88d;
+  --brand-sage-hover: #658d74;
+  --accent-cyan: #7da88d;
+  --accent-blue: #7da88d;
   --accent-purple: #8b5cf6;
-  --accent-green: #10b981;
+  --accent-green: #7da88d;
   --accent-red: #ef4444;
-  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color: #2c352f;
   --border-radius: 0.75rem;
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }

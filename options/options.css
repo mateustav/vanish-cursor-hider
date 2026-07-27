@@ -1,48 +1,70 @@
 :root {
   color-scheme: dark;
-  --bg-dark: #0b0f19;
-  --bg-sidebar: #111827;
-  --bg-card: #1f2937;
-  --bg-card-hover: #374151;
-  --bg-input: #111827;
-  --text-main: #f9fafb;
-  --text-muted: #9ca3af;
-  --text-dim: #6b7280;
-  --accent-cyan: #38bdf8;
-  --accent-blue: #3b82f6;
+  --bg-app: #141715;
+  --bg-dark: #141715;
+  --bg-sidebar: #191f1b;
+  --bg-card: #1e2420;
+  --bg-card-hover: #28302a;
+  --bg-input: #141715;
+  --text-main: #e6ece8;
+  --text-muted: #a3b2a8;
+  --text-dim: #77887d;
+  --text-primary: #e6ece8;
+  --text-on-accent: #141715;
+  --brand-sage: #7da88d;
+  --brand-sage-hover: #658d74;
+  --accent-cyan: #7da88d;
+  --accent-blue: #7da88d;
   --accent-purple: #8b5cf6;
-  --accent-green: #10b981;
+  --accent-green: #7da88d;
   --accent-red: #ef4444;
-  --border: rgba(255, 255, 255, 0.08);
+  --border: #2c352f;
+  --border-color: #2c352f;
   --radius: 0.75rem;
   --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 body.theme-light {
   color-scheme: light;
-  --bg-dark: #f8fafc;
-  --bg-sidebar: #ffffff;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
-  --bg-input: #f8fafc;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --text-dim: #94a3b8;
-  --border: rgba(0, 0, 0, 0.08);
+  --bg-app: #ffffff;
+  --bg-dark: #ffffff;
+  --bg-sidebar: #fdfbf7;
+  --bg-card: #f6eab6;
+  --bg-card-hover: #ede0a6;
+  --bg-input: #fdfbf7;
+  --text-main: #4a4a4a;
+  --text-muted: #6b6b6b;
+  --text-dim: #8a8a8a;
+  --text-primary: #4a4a4a;
+  --text-on-accent: #141715;
+  --brand-sage: #a9d6bb;
+  --brand-sage-hover: #8fbf9f;
+  --accent-cyan: #658d74;
+  --accent-blue: #8fbf9f;
+  --border: #e2ded4;
+  --border-color: #e2ded4;
 }
 
 @media (prefers-color-scheme: light) {
   body.theme-system {
     color-scheme: light;
-    --bg-dark: #f8fafc;
-    --bg-sidebar: #ffffff;
-    --bg-card: #ffffff;
-    --bg-card-hover: #f1f5f9;
-    --bg-input: #f8fafc;
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-    --text-dim: #94a3b8;
-    --border: rgba(0, 0, 0, 0.08);
+    --bg-app: #ffffff;
+    --bg-dark: #ffffff;
+    --bg-sidebar: #fdfbf7;
+    --bg-card: #f6eab6;
+    --bg-card-hover: #ede0a6;
+    --bg-input: #fdfbf7;
+    --text-main: #4a4a4a;
+    --text-muted: #6b6b6b;
+    --text-dim: #8a8a8a;
+    --text-primary: #4a4a4a;
+    --text-on-accent: #141715;
+    --brand-sage: #a9d6bb;
+    --brand-sage-hover: #8fbf9f;
+    --accent-cyan: #658d74;
+    --accent-blue: #8fbf9f;
+    --border: #e2ded4;
+    --border-color: #e2ded4;
   }
 }
 
