@@ -1,6 +1,6 @@
 {
   "name": "vanish-extension",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Vanish: Automatically vanishes the mouse pointer during video playback on Disney+ and major streaming sites.",
   "main": "dist/background.js",
   "scripts": {
@@ -24,8 +24,8 @@
     "fullscreen",
     "typescript"
   ],
-  "author": "Mateus Tav",
-  "license": "UNLICENSED",
+  "author": "Mat Tavares",
+  "license": "MIT",
   "devDependencies": {
     "@types/chrome": "^0.0.268",
     "@types/jest": "^29.5.12",

@@ -37,7 +37,7 @@ describe('idleController', () => {
       injectCursorStyles(mockDoc);
       const styleEl = mockDoc.getElementById(STYLE_ID);
       expect(styleEl).not.toBeNull();
-      expect(styleEl?.textContent).toContain('data:image/png;base64');
+      expect(styleEl?.textContent).toContain('cursor: none !important');
     });
 
     it('should not inject duplicate style elements', () => {

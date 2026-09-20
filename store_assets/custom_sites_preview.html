@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Vanish Showcase (1280x800)</title>
+  <title>Custom Sites Showcase (1280x800)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -23,11 +23,11 @@
     body::before {
       content: '';
       position: absolute;
-      width: 800px;
-      height: 800px;
+      width: 750px;
+      height: 750px;
       background: radial-gradient(circle, rgba(125, 168, 141, 0.12) 0%, rgba(20, 23, 21, 0) 70%);
       top: 50%;
-      left: 35%;
+      left: 30%;
       transform: translate(-50%, -50%);
       pointer-events: none;
     }
@@ -41,7 +41,7 @@
       z-index: 1;
     }
     .left-hero {
-      max-width: 540px;
+      max-width: 520px;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -49,11 +49,11 @@
     .hero-brand {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
     }
     .logo-hero {
-      width: 76px;
-      height: 76px;
+      width: 72px;
+      height: 72px;
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(125, 168, 141, 0.2);
@@ -64,7 +64,7 @@
       object-fit: cover;
     }
     .hero-title h1 {
-      font-size: 38px;
+      font-size: 36px;
       font-weight: 800;
       line-height: 1.1;
       color: #e6ece8;
@@ -79,32 +79,59 @@
       color: #a3b2a8;
       line-height: 1.6;
     }
-    .badge-pills {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .pill {
+    .card-box {
       background: #1e2420;
-      border: 1px solid rgba(125, 168, 141, 0.3);
+      border: 1px solid rgba(125, 168, 141, 0.25);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
       color: #7da88d;
-      padding: 9px 18px;
-      border-radius: 20px;
-      font-size: 14px;
+    }
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .card-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #141715;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      color: #e6ece8;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .tag {
+      background: rgba(125, 168, 141, 0.2);
+      color: #7da88d;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
       font-weight: 700;
     }
     .right-preview {
-      width: 380px;
+      width: 480px;
       height: 570px;
       border-radius: 20px;
       box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(125, 168, 141, 0.2);
       overflow: hidden;
       background: #141715;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    iframe {
+    .right-preview img {
       width: 100%;
       height: 100%;
-      border: none;
+      object-fit: cover;
     }
   </style>
 </head>
@@ -116,21 +143,33 @@
           <img src="vanish_brand_logo_square.png" alt="Vanish">
         </div>
         <div class="hero-title">
-          <h1>Vanish</h1>
-          <span>Auto Pointer Hider for Video Playback</span>
+          <h1>Custom Domain Manager</h1>
+          <span>Works on any video site</span>
         </div>
       </div>
       <p class="hero-desc">
-        Automatically vanishes your mouse pointer while watching videos on Disney+, YouTube, and custom streaming sites. 
+        Add any custom video platform, anime site, or local media server with instant real-time sync across your browser.
       </p>
-      <div class="badge-pills">
-        <div class="pill">🎬 Disney+ Native</div>
-        <div class="pill">📺 YouTube Supported</div>
-        <div class="pill">⚡ 0% CPU Overhead</div>
+      <div class="card-box">
+        <div class="card-title">Supported Out of the Box</div>
+        <div class="card-list">
+          <div class="card-item">
+            <span>Disney+ (disneyplus.com)</span>
+            <span class="tag">Native Preset</span>
+          </div>
+          <div class="card-item">
+            <span>YouTube (youtube.com)</span>
+            <span class="tag">Native Preset</span>
+          </div>
+          <div class="card-item">
+            <span>Custom Domains (crunchyroll.com, plex.tv...)</span>
+            <span class="tag">Custom Domain</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="right-preview">
-      <iframe src="../popup/popup.html"></iframe>
+      <img src="vanish_brand_logo.png" alt="Vanish Brand Showcase">
     </div>
   </div>
 </body>

@@ -6,7 +6,8 @@ export const OVERLAY_ID = "ach-cursor-overlay";
 export const SHADOW_STYLE_ID = "ach-shadow-style";
 export const HIDDEN_CLASS = "ach-cursor-hidden";
 
-const TRANSPARENT_CURSOR_DATA = `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==") 0 0, none !important`;
+const TRANSPARENT_CURSOR_CSS_VALUE = `none !important`;
+const TRANSPARENT_CURSOR_VALUE = `none`;
 
 const CURSOR_NONE_CSS = `
   html.${HIDDEN_CLASS},
@@ -31,13 +32,13 @@ const CURSOR_NONE_CSS = `
   html.${HIDDEN_CLASS} iframe,
   html.${HIDDEN_CLASS} div,
   html.${HIDDEN_CLASS} button {
-    cursor: ${TRANSPARENT_CURSOR_DATA};
+    cursor: ${TRANSPARENT_CURSOR_CSS_VALUE};
   }
 
   pointer-actions::part(pointer-mask-root),
   pointer-actions::part(pointer-mask-root) *,
   pointer-actions::part(pointer-mask-root) path {
-    cursor: ${TRANSPARENT_CURSOR_DATA};
+    cursor: ${TRANSPARENT_CURSOR_CSS_VALUE};
   }
 
   #${OVERLAY_ID} {
@@ -51,7 +52,7 @@ const CURSOR_NONE_CSS = `
     z-index: 2147483647 !important;
     background: transparent !important;
     pointer-events: none !important;
-    cursor: ${TRANSPARENT_CURSOR_DATA};
+    cursor: ${TRANSPARENT_CURSOR_CSS_VALUE};
     display: none;
   }
 
@@ -62,10 +63,10 @@ const CURSOR_NONE_CSS = `
 
 const SHADOW_CURSOR_NONE_CSS = `
   * {
-    cursor: ${TRANSPARENT_CURSOR_DATA};
+    cursor: ${TRANSPARENT_CURSOR_CSS_VALUE};
   }
   path, svg, div, button, a, [part*="pointer"], [data-pointer-mask-path] {
-    cursor: ${TRANSPARENT_CURSOR_DATA};
+    cursor: ${TRANSPARENT_CURSOR_CSS_VALUE};
   }
 `;
 
@@ -245,7 +246,7 @@ export class IdleController {
     }
     if (overlay) {
       overlay.classList.add("active");
-      overlay.style.setProperty("cursor", TRANSPARENT_CURSOR_DATA, "important");
+      overlay.style.setProperty("cursor", TRANSPARENT_CURSOR_VALUE, "important");
       overlay.style.setProperty("display", "block", "important");
     }
 
@@ -258,7 +259,7 @@ export class IdleController {
       this.doc.documentElement.classList.add(HIDDEN_CLASS);
       this.doc.documentElement.style.setProperty(
         "cursor",
-        TRANSPARENT_CURSOR_DATA,
+        TRANSPARENT_CURSOR_VALUE,
         "important",
       );
     }
@@ -266,7 +267,7 @@ export class IdleController {
       this.doc.body.classList.add(HIDDEN_CLASS);
       this.doc.body.style.setProperty(
         "cursor",
-        TRANSPARENT_CURSOR_DATA,
+        TRANSPARENT_CURSOR_VALUE,
         "important",
       );
     }

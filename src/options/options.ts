@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function renderPresetSites(): void {
-    presetGrid.innerHTML = '';
+    presetGrid.replaceChildren();
     const query = presetSearch.value.toLowerCase().trim();
 
     const filtered = (settings.presetSites || []).filter(site => {
@@ -80,7 +80,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     if (filtered.length === 0) {
-      presetGrid.innerHTML = `<div class="empty-state">No matching streaming sites found.</div>`;
+      const emptyDiv = document.createElement('div');
+      emptyDiv.className = 'empty-state';
+      emptyDiv.textContent = 'No matching streaming sites found.';
+      presetGrid.appendChild(emptyDiv);
       return;
     }
 
@@ -90,21 +93,45 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       const initials = site.name.substring(0, 2).toUpperCase();
 
-      card.innerHTML = `
-        <div class="site-badge">
-          <div class="site-icon">${initials}</div>
-          <div class="site-info">
-            <h4>${site.name}</h4>
-            <span>${site.domain}</span>
-          </div>
-        </div>
-        <label class="toggle-switch">
-          <input type="checkbox" ${site.enabled ? 'checked' : ''} data-site-id="${site.id}">
-          <span class="slider"></span>
-        </label>
-      `;
+      const siteBadge = document.createElement('div');
+      siteBadge.className = 'site-badge';
 
-      const checkbox = card.querySelector('input') as HTMLInputElement;
+      const siteIcon = document.createElement('div');
+      siteIcon.className = 'site-icon';
+      siteIcon.textContent = initials;
+
+      const siteInfo = document.createElement('div');
+      siteInfo.className = 'site-info';
+
+      const h4 = document.createElement('h4');
+      h4.textContent = site.name;
+
+      const span = document.createElement('span');
+      span.textContent = site.domain;
+
+      siteInfo.appendChild(h4);
+      siteInfo.appendChild(span);
+
+      siteBadge.appendChild(siteIcon);
+      siteBadge.appendChild(siteInfo);
+
+      const label = document.createElement('label');
+      label.className = 'toggle-switch';
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.checked = site.enabled;
+      checkbox.setAttribute('data-site-id', site.id);
+
+      const slider = document.createElement('span');
+      slider.className = 'slider';
+
+      label.appendChild(checkbox);
+      label.appendChild(slider);
+
+      card.appendChild(siteBadge);
+      card.appendChild(label);
+
       checkbox.addEventListener('change', async () => {
         const targetSite = settings.presetSites.find(s => s.id === site.id);
         if (targetSite) {
@@ -119,16 +146,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function renderCustomSites(): void {
-    customSitesList.innerHTML = '';
+    customSitesList.replaceChildren();
     const list = settings.customSites || [];
     customCount.textContent = list.length.toString();
 
     if (list.length === 0) {
-      customSitesList.innerHTML = `
-        <div class="empty-state">
-          No custom domains added yet. Add domain names above to enable cursor hiding on custom streaming players.
-        </div>
-      `;
+      const emptyDiv = document.createElement('div');
+      emptyDiv.className = 'empty-state';
+      emptyDiv.textContent = 'No custom domains added yet. Add domain names above to enable cursor hiding on custom streaming players.';
+      customSitesList.appendChild(emptyDiv);
       return;
     }
 
@@ -136,12 +162,18 @@ document.addEventListener('DOMContentLoaded', async () => {
       const row = document.createElement('div');
       row.className = 'custom-site-row';
 
-      row.innerHTML = `
-        <span class="custom-site-name">${domain}</span>
-        <button class="delete-domain-btn" data-index="${index}">Remove</button>
-      `;
+      const domainSpan = document.createElement('span');
+      domainSpan.className = 'custom-site-name';
+      domainSpan.textContent = domain;
 
-      const deleteBtn = row.querySelector('.delete-domain-btn') as HTMLButtonElement;
+      const deleteBtn = document.createElement('button');
+      deleteBtn.className = 'delete-domain-btn';
+      deleteBtn.setAttribute('data-index', index.toString());
+      deleteBtn.textContent = 'Remove';
+
+      row.appendChild(domainSpan);
+      row.appendChild(deleteBtn);
+
       deleteBtn.addEventListener('click', async () => {
         settings.customSites.splice(index, 1);
         await chrome.storage.sync.set({ customSites: settings.customSites });

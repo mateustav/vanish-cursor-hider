@@ -25,7 +25,7 @@
       position: absolute;
       width: 800px;
       height: 800px;
-      background: radial-gradient(circle, rgba(125, 168, 141, 0.12) 0%, rgba(20, 23, 21, 0) 70%);
+      background: radial-gradient(circle, rgba(125, 168, 141, 0.15) 0%, rgba(20, 23, 21, 0) 70%);
       top: 50%;
       left: 35%;
       transform: translate(-50%, -50%);
@@ -52,11 +52,11 @@
       gap: 20px;
     }
     .logo-hero {
-      width: 76px;
-      height: 76px;
-      border-radius: 18px;
+      width: 84px;
+      height: 84px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(125, 168, 141, 0.2);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(125, 168, 141, 0.3);
     }
     .logo-hero img {
       width: 100%;
@@ -64,13 +64,13 @@
       object-fit: cover;
     }
     .hero-title h1 {
-      font-size: 38px;
+      font-size: 40px;
       font-weight: 800;
       line-height: 1.1;
       color: #e6ece8;
     }
     .hero-title span {
-      font-size: 15px;
+      font-size: 16px;
       color: #7da88d;
       font-weight: 700;
     }
@@ -86,25 +86,28 @@
     }
     .pill {
       background: #1e2420;
-      border: 1px solid rgba(125, 168, 141, 0.3);
+      border: 1px solid rgba(125, 168, 141, 0.35);
       color: #7da88d;
-      padding: 9px 18px;
+      padding: 10px 18px;
       border-radius: 20px;
       font-size: 14px;
       font-weight: 700;
     }
     .right-preview {
-      width: 380px;
-      height: 570px;
-      border-radius: 20px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(125, 168, 141, 0.2);
-      overflow: hidden;
+      width: 440px;
+      height: 580px;
+      border-radius: 22px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(125, 168, 141, 0.25);
       background: #141715;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+      border: 1px solid rgba(125, 168, 141, 0.25);
+      border-radius: 12px;
+      background: #141715;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
     }
   </style>
 </head>
@@ -130,7 +133,7 @@
       </div>
     </div>
     <div class="right-preview">
-      <iframe src="../popup/popup.html"></iframe>
+      <iframe src="../popup/popup_mock.html" width="340" height="490" scrolling="no"></iframe>
     </div>
   </div>
 </body>

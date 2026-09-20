@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vanish Domain Manager Screenshot</title>
+  <link rel="stylesheet" href="../options/options.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      width: 1280px;
+      height: 800px;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #141715;
+    }
+    .app-layout {
+      width: 1280px;
+      height: 800px;
+      display: flex;
+    }
+  </style>
+</head>
+<body class="theme-dark">
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">
+          <img src="vanish_brand_logo_square.png" alt="Vanish Logo" class="logo-img" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
+        </div>
+        <div class="brand-text">
+          <h2>Vanish</h2>
+          <span>Preferences & Sites</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          <span>General Settings</span>
+        </button>
+        <button class="nav-item active">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          <span>Domain Manager</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="footer-link">
+          <span>Version 1.0.1</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="page-title">
+          <h1>Domain Manager & Streaming Presets</h1>
+          <p>Manage built-in presets and custom streaming sites.</p>
+        </div>
+      </header>
+
+      <div class="content-body">
+        <div class="tab-content active">
+          <!-- Add Custom Domain Input -->
+          <section class="card">
+            <div class="card-header-simple">
+              <h3>Add Custom Domain</h3>
+              <p>Add custom web address or local server (e.g. crunchyroll.com, localhost:8080).</p>
+            </div>
+            <div class="add-domain-form" style="display:flex; gap:12px; margin-top:12px;">
+              <input type="text" placeholder="e.g. crunchyroll.com or plex.tv" value="crunchyroll.com" class="text-input" style="flex:1;">
+              <button class="btn btn-primary" style="background:#7da88d; color:#141715; border:none; padding:10px 20px; border-radius:8px; font-weight:700;">+ Add Domain</button>
+            </div>
+          </section>
+
+          <!-- Streaming Presets Grid -->
+          <section class="card">
+            <div class="card-header-simple">
+              <h3>Streaming Presets</h3>
+              <p>Native integration for popular streaming platforms.</p>
+            </div>
+            <div class="sites-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:12px;">
+              <div class="site-card enabled" style="background:#1e2420; border:1px solid #7da88d; padding:16px; border-radius:12px; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <h4 style="color:#e6ece8; font-size:15px; font-weight:700;">🎬 Disney+</h4>
+                  <span style="color:#a3b2a8; font-size:12px;">disneyplus.com</span>
+                </div>
+                <span class="badge" style="background:#7da88d; color:#141715; padding:4px 10px; border-radius:12px; font-size:12px; font-weight:700;">Enabled</span>
+              </div>
+              <div class="site-card enabled" style="background:#1e2420; border:1px solid #7da88d; padding:16px; border-radius:12px; display:flex; justify-content:space-between; align-items:center;">
+                <div>
+                  <h4 style="color:#e6ece8; font-size:15px; font-weight:700;">📺 YouTube</h4>
+                  <span style="color:#a3b2a8; font-size:12px;">youtube.com</span>
+                </div>
+                <span class="badge" style="background:#7da88d; color:#141715; padding:4px 10px; border-radius:12px; font-size:12px; font-weight:700;">Enabled</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Custom Added Domains -->
+          <section class="card">
+            <div class="card-header-simple">
+              <h3>Custom Added Domains</h3>
+              <p>Domains where pointer hiding is active.</p>
+            </div>
+            <div class="custom-sites-list" style="display:flex; flex-direction:column; gap:8px; margin-top:12px;">
+              <div class="custom-site-row" style="background:#1e2420; padding:12px 16px; border-radius:10px; display:flex; justify-content:space-between; align-items:center; border:1px solid #2c352f;">
+                <div>
+                  <span style="color:#e6ece8; font-weight:600;">crunchyroll.com</span>
+                  <span style="color:#7da88d; font-size:12px; margin-left:10px;">Custom Domain</span>
+                </div>
+                <button style="background:transparent; border:1px solid #ef4444; color:#ef4444; padding:4px 10px; border-radius:6px; font-size:12px; font-weight:600;">Remove</button>
+              </div>
+              <div class="custom-site-row" style="background:#1e2420; padding:12px 16px; border-radius:10px; display:flex; justify-content:space-between; align-items:center; border:1px solid #2c352f;">
+                <div>
+                  <span style="color:#e6ece8; font-weight:600;">plex.tv</span>
+                  <span style="color:#7da88d; font-size:12px; margin-left:10px;">Custom Domain</span>
+                </div>
+                <button style="background:transparent; border:1px solid #ef4444; color:#ef4444; padding:4px 10px; border-radius:6px; font-size:12px; font-weight:600;">Remove</button>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

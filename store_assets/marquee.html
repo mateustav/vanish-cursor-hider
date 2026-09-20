@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Marquee Promo Tile</title>
+  <title>Marquee Promo Tile (1400x560)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -11,20 +11,33 @@
     body {
       width: 1400px;
       height: 560px;
-      background: #0b0f19;
-      color: #f9fafb;
+      background: #141715;
+      color: #e6ece8;
       font-family: 'Plus Jakarta Sans', sans-serif;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 60px 100px;
+      padding: 60px 90px;
       overflow: hidden;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(125, 168, 141, 0.12) 0%, rgba(20, 23, 21, 0) 70%);
+      top: 50%;
+      left: 30%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
     }
     .brand-content {
-      max-width: 680px;
+      max-width: 660px;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 26px;
+      z-index: 1;
     }
     .header-group {
       display: flex;
@@ -36,8 +49,7 @@
       height: 110px;
       border-radius: 26px;
       overflow: hidden;
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(125, 168, 141, 0.25);
       flex-shrink: 0;
     }
     .logo-frame img {
@@ -50,39 +62,41 @@
       font-weight: 800;
       letter-spacing: -1.5px;
       line-height: 1.05;
-      color: #f9fafb;
+      color: #e6ece8;
     }
     .title-group p {
       font-size: 22px;
       font-weight: 700;
-      color: #38bdf8;
+      color: #7da88d;
       margin-top: 6px;
     }
     .tagline {
-      font-size: 20px;
-      color: #9ca3af;
+      font-size: 19px;
+      color: #a3b2a8;
       line-height: 1.6;
     }
     .feature-pills {
       display: flex;
-      gap: 16px;
+      gap: 14px;
+      flex-wrap: wrap;
     }
     .pill {
-      background: #111827;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      color: #f9fafb;
+      background: #1e2420;
+      border: 1px solid rgba(125, 168, 141, 0.3);
+      color: #e6ece8;
       padding: 10px 20px;
       border-radius: 24px;
       font-size: 15px;
       font-weight: 700;
     }
     .hero-art {
-      width: 440px;
+      width: 480px;
       height: 440px;
-      border-radius: 30px;
+      border-radius: 28px;
       overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(125, 168, 141, 0.2);
+      z-index: 1;
+      background: #1e2420;
     }
     .hero-art img {
       width: 100%;
@@ -95,7 +109,7 @@
   <div class="brand-content">
     <div class="header-group">
       <div class="logo-frame">
-        <img src="../icons/icon512.png" alt="Vanish">
+        <img src="vanish_brand_logo_square.png" alt="Vanish">
       </div>
       <div class="title-group">
         <h1>Vanish</h1>
@@ -112,7 +126,7 @@
     </div>
   </div>
   <div class="hero-art">
-    <img src="../icons/icon512.png" alt="Vanish Artwork">
+    <img src="vanish_brand_logo.png" alt="Vanish Artwork">
   </div>
 </body>
 </html>

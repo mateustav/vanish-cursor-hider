@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function renderPresetPills(): void {
-    presetsPills.innerHTML = '';
+    presetsPills.replaceChildren();
     if (!Array.isArray(settings.presetSites)) return;
 
     const popularIds = ['disneyplus', 'netflix', 'youtube', 'primevideo', 'max', 'hulu'];

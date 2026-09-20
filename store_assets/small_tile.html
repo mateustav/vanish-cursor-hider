@@ -2,34 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Small Promo Tile</title>
+  <title>Small Promo Tile (440x280)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       width: 440px;
       height: 280px;
-      background: #0b0f19;
-      color: #f9fafb;
+      background: #141715;
+      color: #e6ece8;
       font-family: 'Plus Jakarta Sans', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 16px;
       padding: 24px;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(125, 168, 141, 0.15) 0%, rgba(20, 23, 21, 0) 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
     }
     .logo-box {
-      width: 90px;
-      height: 90px;
-      border-radius: 20px;
+      width: 96px;
+      height: 96px;
+      border-radius: 22px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(125, 168, 141, 0.2);
+      z-index: 1;
     }
     .logo-box img {
       width: 100%;
@@ -38,25 +49,27 @@
     }
     .title-box {
       text-align: center;
+      z-index: 1;
     }
     h1 {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 800;
       letter-spacing: -0.5px;
-      color: #f9fafb;
+      color: #e6ece8;
       line-height: 1.1;
     }
     p {
       font-size: 13px;
-      color: #38bdf8;
+      color: #7da88d;
       font-weight: 700;
-      margin-top: 4px;
+      margin-top: 6px;
+      letter-spacing: 0.2px;
     }
   </style>
 </head>
 <body>
   <div class="logo-box">
-    <img src="../icons/icon512.png" alt="Vanish">
+    <img src="vanish_brand_logo_square.png" alt="Vanish">
   </div>
   <div class="title-box">
     <h1>Vanish</h1>

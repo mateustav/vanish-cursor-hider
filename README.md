@@ -1,4 +1,4 @@
-# Vanish — Auto Pointer Hider for Streaming
+# Vanish: Auto Pointer Hider for Streaming
 
 A lightweight, modern Manifest V3 extension written in **TypeScript** that automatically vanishes the mouse pointer during video playback on **Disney+** and **YouTube** after a customizable idle delay.
 
@@ -22,16 +22,41 @@ A lightweight, modern Manifest V3 extension written in **TypeScript** that autom
 - `yarn build:firefox`: Generates the self-contained Firefox build folder (`dist-firefox/`).
 - `yarn pack`: Builds and zips the Chrome extension bundle into **`vanish-chrome.zip`** for store upload.
 - `yarn pack:firefox`: Builds and zips the Firefox add-on bundle into **`vanish-firefox.zip`** for store upload.
-- `yarn pack:all`: Builds and generates both Chrome and Firefox zip bundles.
+- `yarn pack:all`: Builds and generates Chrome, Firefox, and Source Code zip bundles.
 - `yarn test`: Runs the Jest unit test suite across all modules.
 - `yarn typecheck`: Performs strict TypeScript type checking (`tsc --noEmit`).
+
+---
+
+## 🦊 Firefox AMO Reviewer Build Instructions
+
+### Operating System & Build Environment Requirements
+- **OS**: macOS, Linux, or Windows
+- **Node.js**: Version 18.x, 20.x, or 24.x (Tested on Node.js v24.13.0)
+- **Package Manager**: Yarn (v1.22+ or Yarn Berry) / Corepack or `npm`
+
+### Step-by-Step Instructions to Reproduce Firefox Add-on Build
+
+1. Extract the source code zip (`vanish-source-code.zip`).
+2. Open terminal in the source directory and install dependencies:
+   ```bash
+   yarn install
+   # or: npm install
+   ```
+3. Run the Firefox build script:
+   ```bash
+   yarn build:firefox
+   # or: node build-firefox.js
+   ```
+4. The exact output extension bundle will be generated inside **`dist-firefox/`**.
 
 ---
 
 ## 📦 How to Bundle for Web Store Publishing
 
 - **Chrome Web Store**: Run `yarn pack` to generate **`vanish-chrome.zip`**.
-- **Firefox AMO**: Run `yarn pack:firefox` to generate **`vanish-firefox.zip`**.
+- **Firefox AMO Add-on**: Run `yarn pack:firefox` to generate **`vanish-firefox.zip`**.
+- **Firefox AMO Source Code**: Upload **`vanish-source-code.zip`**.
 
 ---
 
@@ -55,8 +80,7 @@ A lightweight, modern Manifest V3 extension written in **TypeScript** that autom
 
 ---
 
-## 🔒 License & Copyright
+## 📄 License
 
-**Copyright (c) 2026 Mateus Tav. All Rights Reserved. Private & Proprietary.**
+This project is open source and available under the [MIT License](LICENSE).
 
-This software is strictly private and proprietary. No permission is granted to copy, modify, distribute, publish, or commercialize this code without express written permission.

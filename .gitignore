@@ -24,3 +24,23 @@ Thumbs.db
 cdp_*.js
 inspect_*.js
 test_*.js
+
+# Browser user data & profiles (security / privacy)
+.chrome-profile*/
+**/.chrome-profile*/
+SingletonCookie
+SingletonSocket
+SingletonLock
+
+# Security & credentials
+.env*
+*.pem
+*.key
+*.cert
+*.crt
+credentials*
+
+# UI mock & preview files
+*mock*
+mock_*
+
